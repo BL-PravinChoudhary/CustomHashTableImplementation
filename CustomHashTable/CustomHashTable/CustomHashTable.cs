@@ -45,4 +45,29 @@ public class CustomHashTable
             Console.WriteLine();
         }
     }
+
+    public void Search(string name)
+    {
+        int arrayIndex = Math.Abs(name.GetHashCode()) % Names.Length;
+
+        Node temp = Names[arrayIndex];
+
+        if (temp == null)
+        {
+            Console.WriteLine($"{name} not found");
+            return;
+        }
+
+        while (temp.Data != name)
+        {
+            if (temp.Next == null)
+            {
+                Console.WriteLine($"{name} not found");
+                return;
+            }
+            temp = temp.Next;
+        }
+
+        Console.WriteLine($"{name} is present at {arrayIndex} index in the hashtable");
+    }
 }

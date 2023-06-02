@@ -12,5 +12,8 @@ internal class Program
 
         myHashTable.Display();
 
+        myHashTable.Search("Max");
+        myHashTable.Search("hafda");
+
     }
 }
