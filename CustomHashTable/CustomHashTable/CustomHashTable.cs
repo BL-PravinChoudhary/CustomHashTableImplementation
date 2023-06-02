@@ -19,4 +19,14 @@ public class CustomHashTable
     {
         Names = new Node[size];
     }
+
+    public void Add(string name)
+    {
+        Node newNode = new Node(name);
+
+        int arrayIndex = Math.Abs(name.GetHashCode()) % Names.Length;
+
+        newNode.Next = Names[arrayIndex];
+        Names[arrayIndex] = newNode;
+    }
 }
